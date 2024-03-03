@@ -1,0 +1,17 @@
+-----------Needs to be Done--------------
+Copy Cards: Done
+Shuffle Cards: Done
+Add Hand: Done
+Draw Cards: Done
+Split Hand: Missing
+Display Cards: Missing
+Check Value: Missing
+Game Loop: Missing
+Game Bet: Missing
+
+
+
+-----------Pseudo Code--------------
+Player Draw
+TODO: for player draw make a loop that goes on each list in ["player"]["cards"]
+TODO: and a nested one that uses if draw: 'continue' to keep drawing cards for said list
