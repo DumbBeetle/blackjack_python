@@ -15,3 +15,49 @@ Game Bet: Missing
 Player Draw
 TODO: for player draw make a loop that goes on each list in ["player"]["cards"]
 TODO: and a nested one that uses if draw: 'continue' to keep drawing cards for said list
+
+--Constants--
+CARD_ROWS: number of rows
+CARDS_INDEX: index of cards in hand list
+SYMBOL_INDEX: index of symbols in hand list
+CARDS_SYMBOLS: hold cards symbols
+CARDS_LIST: hold game cards
+HIDE_DEALER: bool used only to tell function to use only the first card
+
+
+--Variables--
+deck: copy of CARD_LIST
+money: user money
+user_hand: [
+        [[card, card], [symbol, symbol]],
+        [[card, card], [symbol, symbol]],
+    ]
+dealer_hand = [
+              [[card, card], [symbol, symbol]],
+    ]
+user_hand_values = []: used for storing each hand values.
+number_of_hands: will default to 1 and using add_hand() will add +1 to it. will be used to tell how many hands does the user have.
+
+
+--Functions--
+set_default_values: will copy CARDS_LIST to deck, user/dealer_hand = [[]], number_of_hands = 1, user_hand_values = []
+add_hand: add another list to the user_hand and add +1 to number_of_hands.
+first_draw: will draw and add a card to each player, user first.
+shuffle_deck: shuffle the deck.
+draw_card: (specific hand) draw one card for hand.
+get_hand_value: (specific hand, hide_cards = False) calculate value and return it.
+display_hand: (specific hand, hide_cards = False)  print hand, will also use get_hand_value().
+display_value: (specific hand) might be used instead of using get_hand_value() inside of display_hand().
+check_hand: (return of display_value()) check if hand is a bust or not.
+conclusion: check each player value
+--Game Loop--
+start game => set_default_values() => first_draw() => display hands for each player, dealer first =>
+display user choices:
+1. "Hit" =>  draw_card(user_hand) => display_hand() => check_hand()
+2. "Stand" => check_hand() for both players => conclusion()
+3. "Split" [First turn of each hand only = only when hand is 2 cards] => split_hand() => draw_card() for first hand => repeat step 1-4 => conclusion().
+4. "Double Down" [First turn of each hand only = only when hand is 2 cards] => draw_card(user_hand) => conclusion().
+
+--Examples--
+specific hand: ????_hand[hand_index]
+hide_cards: will display only the first card when received HIDE_DEALER as argument, else will display all

@@ -1,4 +1,5 @@
-from new import (card_symbols, card_list, add_hand, draw_cards, player_list, first_draw, display_player_cards)
+from new import (card_symbols, card_list, add_hand, draw_cards, player_list, first_draw, display_player_cards,
+                 get_hand_value)
 
 
 def game_loop():
@@ -10,11 +11,14 @@ def game_loop():
         first_draw()
         display_player_cards("dealer", True)
         display_player_cards("user")
-        # user_choice = input("Hit or Stand").lower()
-        # if user_choice == "hit":
-        draw_cards(player_list["user"])
-        print(player_list["user"])
-        display_player_cards("user")
+
+        while True:
+            user_choice = input("Hit or Stand \n").lower()
+            if user_choice == "hit":
+                draw_cards(player_list["user"])
+                display_player_cards("user")
+
+            break
 
         break
 
